@@ -22,6 +22,7 @@ module.exports = {
   ],
   rules: {
     'comma-dangle': 'off',
-    'react/jsx-filename-extension': 'off'
+    'import/prefer-default-export': 'off' // for folder index exports
   },
+  parser: "babel-eslint",
 };

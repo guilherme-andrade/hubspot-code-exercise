@@ -1,11 +1,17 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
+  entry: [
+    'core-js/modules/es.promise',
+    'core-js/modules/es.array.iterator',
+    './src/index.js'
+  ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|bower_components/,
         use: {
           loader: 'babel-loader',
         },
@@ -26,6 +32,10 @@ module.exports = {
           fix: true
         },
       },
+      {
+        test: /\.css$/i,
+        use: ['css-loader'],
+      },
     ],
   },
   plugins: [
@@ -34,4 +44,17 @@ module.exports = {
       filename: './index.html',
     }),
   ],
+  resolve: {
+    modules: [path.resolve('./src'), 'node_modules'],
+    extensions: ['.js', '.jsx'],
+    alias: {
+      Modules: path.resolve(__dirname, './src/modules'),
+      Common: path.resolve(__dirname, './src/modules/common')
+    }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 };
