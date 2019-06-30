@@ -11,7 +11,6 @@ const CardImage = styled.img`
   width: 100%;
   object-fit: cover;
   object-position: center;
-  height: 415px;
 `;
 
 const CardTitle = styled.h2`
