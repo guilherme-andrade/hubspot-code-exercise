@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export { default as Card } from './Card';
 export { default as DropDown } from './DropDown';
 
+export const Text = styled.p`
+  font-family: ${props => (props.theme.bodyFont)};
+  color: ${props => (props.theme.bodyFontColor)};
+  font-size: ${props => (props.theme.bodyFontSize)};
+`;
+
 export const Padder = styled.div`
   padding: ${props => props.y || '.5rem'} ${props => props.x || '1rem'};
 `;
@@ -13,6 +19,9 @@ export const Input = styled.input`
   border-radius: 2px;
   padding: 0.5rem 1rem;
   display: block;
+  font-family: ${props => (props.theme.bodyFont)};
+  color: ${props => (props.theme.bodyFontColor)};
+  font-size: ${props => (props.theme.bodyFontSize)};
 
   &:focus,
   &:active {
@@ -30,6 +39,9 @@ export const ButtonLink = styled.button`
   color: blue;
   text-decoration: underline;
   display: block;
+  font-family: ${props => (props.theme.linkFont)};
+  color: ${props => (props.theme.linkFontColor)};
+  font-size: ${props => (props.theme.linkFontSize)};
 
   &:focus,
   &:active {
@@ -38,7 +50,7 @@ export const ButtonLink = styled.button`
 `;
 
 export const RadioGroup = styled.div`
-  width: 150px;
+  width: ${props => (props.width || '150px')};
   display: flex;
   justify-content: space-between;
   margin-bottom: .5rem;
@@ -84,7 +96,9 @@ export const CheckBox = styled(Radio)`
 `;
 
 export const Label = styled.span`
-  font-weight: bold;
+  font-family: ${props => (props.theme.bodyFont)};
+  color: ${props => (props.theme.bodyFontColor)};
+  font-size: ${props => (props.theme.labelFontSize)};
   text-transform: uppercase;
-  font-size: 13px;
+  font-weight: bold;
 `;

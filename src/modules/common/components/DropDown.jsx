@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import enhanceWithClickOutside from 'react-click-outside';
+import posed from 'react-pose';
 
-const DropDownMenu = styled.div`
+const PosedDropDownMenu = posed.div({
+  visible: {
+    height: 'auto',
+    opacity: 1,
+    scaleY: 1,
+    transition: { duration: 100, ease: 'linear' }
+  },
+  hidden: {
+    height: 0,
+    opacity: 0,
+    scaleY: 0.8,
+    transition: { duration: 100, ease: 'linear' }
+  }
+});
+
+const DropDownMenu = styled(PosedDropDownMenu)`
   position: absolute;
   left: 0;
   top: calc(100% + .5rem);
@@ -30,9 +45,10 @@ const DropDownButton = styled.button`
   border: none;
   border-bottom: 2px solid lightgray;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
-  color: gray;
+  font-family: ${props => (props.theme.bodyFont)};
+  color: ${props => (props.theme.bodyFontColor)};
+  font-size: ${props => (props.theme.bodyFontSize)};
+  font-weight: ${props => (props.theme.linkFontWeight)};
 
 
   &:focus,
@@ -49,7 +65,7 @@ function DropDown({ buttonText, children, width }) {
       <DropDownButton onClick={() => setOpen(!open)}>
         { buttonText }
       </DropDownButton>
-      <DropDownMenu open={open}>
+      <DropDownMenu open={open} pose={open ? 'visible' : 'hidden'}>
         { children }
       </DropDownMenu>
     </DropDownWrapper>
@@ -66,4 +82,4 @@ DropDown.defaultProps = {
   width: '',
 };
 
-export default enhanceWithClickOutside(DropDown);
+export default DropDown;
