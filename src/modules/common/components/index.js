@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export { default as Card } from './Card';
 export { default as DropDown } from './DropDown';
+export { default as Testimonial } from './Testimonial';
+
+export const Container = styled.section`
+  max-width: 1000px;
+  margin: 0 auto;
+`;
 
 export const Text = styled.p`
   font-family: ${props => (props.theme.bodyFont)};
@@ -98,7 +104,7 @@ export const CheckBox = styled(Radio)`
 export const Label = styled.span`
   font-family: ${props => (props.theme.bodyFont)};
   color: ${props => (props.theme.bodyFontColor)};
-  font-size: ${props => (props.theme.labelFontSize)};
+  font-size: ${props => (props.theme.bodyFontSize)};
   text-transform: uppercase;
   font-weight: bold;
 `;

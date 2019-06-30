@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { SearchContainer } from './modules/search/components/containers';
+import { Testimonial } from './modules/common/components';
 
 const grayDark = '#595756';
 const blue = '#20A8E6';
@@ -25,14 +26,17 @@ const theme = {
   linkFont: 'Montserrat',
   linkFontColor: blue,
   linkFontWeight: 'bold',
-  componentPadding: '.5rem 1rem'
+  componentPadding: '1rem 2rem'
 };
 
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SearchContainer />
+      <Fragment>
+        <SearchContainer />
+        <Testimonial />
+      </Fragment>
     </ThemeProvider>
   );
 }
