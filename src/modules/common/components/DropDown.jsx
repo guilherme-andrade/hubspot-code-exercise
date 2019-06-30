@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
+import { useOnClickOutside } from 'hooks';
 
 const PosedDropDownMenu = posed.div({
   visible: {
@@ -43,10 +44,12 @@ const DropDownButton = styled.button`
   padding: .5rem 20px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid lightgray;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: ${props => (props.open ? props.theme.linkFontColor : props.theme.bodyFontColor)}
   text-transform: uppercase;
   font-family: ${props => (props.theme.bodyFont)};
-  color: ${props => (props.theme.bodyFontColor)};
+  color: ${props => (props.open ? props.theme.linkFontColor : props.theme.bodyFontColor)}
   font-size: ${props => (props.theme.bodyFontSize)};
   font-weight: ${props => (props.theme.linkFontWeight)};
 
@@ -60,9 +63,12 @@ const DropDownButton = styled.button`
 
 function DropDown({ buttonText, children, width }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef();
+  useOnClickOutside(ref, () => setOpen(false));
+
   return (
-    <DropDownWrapper open={open} width={width}>
-      <DropDownButton onClick={() => setOpen(!open)}>
+    <DropDownWrapper open={open} width={width} ref={ref}>
+      <DropDownButton open={open} onClick={() => setOpen(!open)}>
         { buttonText }
       </DropDownButton>
       <DropDownMenu open={open} pose={open ? 'visible' : 'hidden'}>
