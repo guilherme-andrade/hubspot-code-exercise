@@ -10,6 +10,8 @@ These notes will be read by HubSpot developers. Drop us a line!
 
 - Write a simple feature `test` for the filtering exercise.
 
+- Included `lazy-loading`
+
 ## How did you deviate from the directions, if at all, and why?
 
 - I didn't reuse the HTML structure of EJS files for the first exercise, simply because I misread the guidelines initially 🙃
@@ -17,6 +19,14 @@ These notes will be read by HubSpot developers. Drop us a line!
 - I used `Webpack` instead of `Gulp` because I'm more familiar with it and felt more comfortable setting up plugins like `ESlint` and using a `dev-server`.
 
 - I didn't write `CSS` in separate files because I like the `styled-components` paradigm and the flexibility it provides, especially for it's reusability for Web and native applications.
+
+- Used `Smart/Dumb` components in a `modular` structure for separation of concerns and maximum respect for the single responsibility principle.
+
+- Used the React `Context` Api (like Netflix does for their filtering) to carry state between components.
+
+- Used `Babel` and `ESlint`.
+
+- Used a `service` to keep logic outside of components and make it reusable (maybe this could have been inside of an effect `hook` actually).
 
 ## Is there anything else you'd like to let us know?
 
