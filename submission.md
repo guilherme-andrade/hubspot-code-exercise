@@ -32,6 +32,6 @@ These notes will be read by HubSpot developers. Drop us a line!
 
 The Component Structure is definitely overdone for the scope of this exercise, but I believe that scalability is a lot about keeping patterns consistent to make it easier for other developers to understand your code.
 
-Lastly, I really hope I didn't mess this up by starting the exercise before a link was sent to me. I took a risk because I would love to join the HubSpot team and see this as a huge opportunity!
+Lastly, I really hope I didn't mess this up by starting the exercise before a link was sent to me!!
 
-Anyways, thank you for taking the time to review my attempt and fingers-crossed! 🤞
+Thank you for taking the time to review my attempt and fingers-crossed! 🤞
