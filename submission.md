@@ -6,7 +6,7 @@ These notes will be read by HubSpot developers. Drop us a line!
 
 - Lightly redesigned the CSS to use Hubspot's branding and reorganized the `styled-components`💅 structure to reuse more `theme` variables.
 
-- Improved **animations** - the changing search results animation looks like crap, and included some kind of alert to let the user know when the results change, like a loader.
+- Improved **animations** - the changing search results animation looks like crap, and included some kind of loader when changing filters for the user to understand the results changed.
 
 - Write a simple feature `test` for the filtering exercise.
 
